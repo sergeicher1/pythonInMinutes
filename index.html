@@ -1,10 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Python in 10 Minutes</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .container {
+        width: 80%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #4a90e2;
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+      .output-list {
+        list-style: none;
+        padding: 0;
+      }
+      .output-item {
+        background-color: #2e3d49;
+        color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border: 2px solid #4a90e2;
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .output-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Modal styles */
+      #modal {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      #modal-content {
+        font-size: 30px;
+        background: #007bff;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Learn Python in 10 Minutes</h1>
+      <ul id="outputList" class="output-list">
+        <!-- Results will be dynamically inserted here -->
+      </ul>
+    </div>
+
+    <!-- Uncomment the following modal code to display the modal -->
+    
+    <div id="modal">
+      <div id="modal-content">
+        <h2>Congratulations!</h2>
+        <p>You've just learned the basics of Python! 🎉</p>
+      </div>
+    </div>
+
+    <script>
+      const results = [
+        "1. Total Score: 15, Max Points: 50", // Result from Variables and Constants
+        "2. Subtract 10 from 15: 5\nDivide 10 by 2: 5", // Result from Functions
+        "3. Animals: dog, rabbit, cat, elephant", // Result from Lists
+        "4. Book title: To Kill a Mockingbird, Author: Harper Lee\nA novel about racism and injustice.", // Result from Dictionaries
+        "5. City: New York\nCity: Los Angeles\nCity: Chicago", // Result from Loops
+        "6. It's a hot day!", // Result from Conditional Statements
+        "7. File content: Name: John\nAge: 25\nLocation: New York", // Result from File Handling
+        "8. Enter your age: 25\nYou are eligible to vote!", // Result from User Input
+        "9. Fetched users: octocat, mozilla, defunkt" // Result from HTTP Requests
+      ];
+
+      window.onload = () => {
+        const outputList = document.getElementById("outputList");
+
+        results.forEach((result, index) => {
+          const li = document.createElement("li");
+          li.classList.add("output-item");
+          li.textContent = result;
+          outputList.appendChild(li);
+
+          // Triggering the animation to reveal the output
+          setTimeout(() => {
+            li.classList.add("visible");
+          }, index * 200); // Adding delay between each item
+        });
+      };
+    </script>
+  </body>
 </html>
